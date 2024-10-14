@@ -1,29 +1,52 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
 }
 
 .container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Menambahkan jarak bawah pada tombol */
+    margin-top: 20px; /* Menambahkan jarak atas pada tombol */
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 .ticket {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    width: 250px; /* Ukuran tiket diperkecil */
-    height: auto; /* Mengatur tinggi otomatis */
-    position: relative; /* Agar tidak saling bertumpuk */
-    display: none; /* Menyembunyikan tiket sampai akan ditampilkan */
+    margin-top: 40px; /* Menambahkan jarak antara tombol dan tiket */
+    text-align: left;
 }
 
 .ticket h2 {
@@ -31,15 +54,8 @@ body {
     margin-bottom: 5px;
 }
 
-.ticket p {
-    margin: 5px 0;
-}
-
 svg {
     display: block;
-    margin: 10px auto;
-}
-
-.ticket-display {
-    margin-top: 20px; /* Jarak antara tombol dan tiket */
+    margin: 0 auto;
+    margin-top: 10px;
 }
