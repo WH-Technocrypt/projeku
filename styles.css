@@ -43,9 +43,15 @@ button:hover {
     background-color: #45a049;
 }
 
+.ticket-container {
+    position: relative;
+    display: inline-block;
+}
+
 .ticket {
     margin-top: 40px; /* Menambahkan jarak antara tombol dan tiket */
     text-align: left;
+    margin-right: 20px; /* Jarak antara tiket dan teks vertikal */
 }
 
 .ticket h2 {
@@ -57,4 +63,16 @@ svg {
     display: block;
     margin: 0 auto;
     margin-top: 10px;
+}
+
+#hamsters-text {
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top: 10px; /* Atur jarak dari atas sesuai kebutuhan */
+    right: -60px; /* Geser ke kanan untuk berada di sebelah tiket */
+    writing-mode: vertical-rl; /* Teks menjadi vertikal dari kanan ke kiri */
+    transform: rotate(180deg); /* Membalik teks agar menghadap ke atas */
+    font-size: 20px;
+    font-style: italic; /* Teks miring */
 }
