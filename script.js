@@ -1,3 +1,13 @@
+document.getElementById('generate-btn').addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    if (name.trim() === "") {
+        alert("Masukkan nama!");
+        return;
+    }
+    generateTicket(name);
+});
+
+// Tombol untuk Generate Tiket Otomatis
 document.getElementById('auto-generate-btn').addEventListener('click', function() {
     const numTickets = parseInt(document.getElementById('num-tickets').value);
     const timer = parseInt(document.getElementById('timer').value) * 1000; // Convert to milliseconds
@@ -8,7 +18,8 @@ document.getElementById('auto-generate-btn').addEventListener('click', function(
         // Fungsi untuk generate tiket secara otomatis
         const interval = setInterval(function() {
             if (ticketCount < numTickets) {
-                generateTicket();
+                const randomName = getRandomName(); // Ambil nama acak
+                generateTicket(randomName);
                 ticketCount++;
             } else {
                 clearInterval(interval); // Stop setelah jumlah tiket tercapai
@@ -20,10 +31,7 @@ document.getElementById('auto-generate-btn').addEventListener('click', function(
 });
 
 // Fungsi untuk generate tiket
-function generateTicket() {
-    // Mendapatkan nama acak tanpa input dari pengguna
-    var userName = getRandomName();
-
+function generateTicket(userName) {
     // Generate nomor transaksi acak
     var transactionNumber = 'TRX' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
 
@@ -52,7 +60,12 @@ function generateTicket() {
         <p>Tanggal: <span>${currentDate}</span></p>
         <svg id="barcode-${transactionNumber}"></svg> <!-- Tempat menampilkan barcode -->
     `;
-    document.getElementById('tickets').appendChild(ticketDiv); // Menambahkan tiket ke dalam div tiket
+    
+    // Tampilkan tiket yang dihasilkan
+    const ticketDisplay = document.getElementById('ticket-display');
+    ticketDisplay.innerHTML = ""; // Kosongkan tiket sebelumnya
+    ticketDisplay.appendChild(ticketDiv); // Menambahkan tiket ke dalam div tiket
+    ticketDisplay.style.display = "block";
 
     // Buat barcode menggunakan JsBarcode
     JsBarcode(`#barcode-${transactionNumber}`, transactionNumber, {
@@ -62,9 +75,6 @@ function generateTicket() {
         height: 40,
         displayValue: true
     });
-
-    // Tampilkan tiket yang dihasilkan
-    document.getElementById('tickets').style.display = "block";
 }
 
 // Fungsi untuk mendapatkan nama acak
