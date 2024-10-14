@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generator Tiket Transaksi</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -29,7 +30,7 @@
             <p>Jenis: <span id="jenis"></span></p>
             <p>Transaksi: <span id="transaksi"></span></p>
             <p>Tanggal: <span id="tanggal"></span></p>
-            <p>Barcode: <span id="barcode"></span></p>
+            <svg id="barcode"></svg> <!-- Tempat menampilkan barcode -->
         </div>
     </div>
 
