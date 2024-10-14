@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator Tiket</title>
+    <title>Generator Tiket Transaksi</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Generator Tiket</h1>
+        <h1>Generator Tiket Transaksi</h1>
         <label for="transaction-number">Masukkan Nomor Transaksi:</label>
-        <input type="text" id="transaction-number" placeholder="Masukkan Nomor">
+        <input type="text" id="transaction-number" placeholder="Nomor Transaksi">
+        <br><br>
+        <label for="transaction-type">Jenis Tiket:</label>
+        <input type="text" id="transaction-type" placeholder="Jenis Tiket">
+        <br><br>
+        <label for="transaction-date">Tanggal:</label>
+        <input type="date" id="transaction-date" placeholder="Tanggal">
         <br><br>
         <button id="generate-btn">Generate Tiket</button>
-        <div class="ticket">
-            <img id="ticket-image" src="" alt="Tiket" style="display: none;">
+        
+        <!-- Tempat untuk menampilkan tiket -->
+        <div class="ticket" id="ticket" style="display: none;">
+            <h2>Trans Jateng</h2>
+            <p>Simpan Tiket Selama Perjalanan</p>
+            <p>Halte: <span id="halte">SKR</span></p>
+            <p>Nama: <span id="name">DWI SETIYAWAN</span></p>
+            <p>Jenis: <span id="jenis"></span></p>
+            <p>Transaksi: <span id="transaksi"></span></p>
+            <p>Tanggal: <span id="tanggal"></span></p>
+            <p>Barcode: <span id="barcode"></span></p>
         </div>
     </div>
 
