@@ -1,16 +1,17 @@
+// Event listener untuk tombol generate tiket manual
 document.getElementById('generate-btn').addEventListener('click', function() {
-    const name = document.getElementById('name').value;
-    if (name.trim() === "") {
+    const name = document.getElementById('name').value.trim(); // Mengambil nama pengguna
+    if (name === "") {
         alert("Masukkan nama!");
         return;
     }
-    generateTicket(name);
+    generateTicket(name); // Menghasilkan tiket dengan nama yang dimasukkan
 });
 
-// Tombol untuk Generate Tiket Otomatis
+// Event listener untuk tombol generate tiket otomatis
 document.getElementById('auto-generate-btn').addEventListener('click', function() {
     const numTickets = parseInt(document.getElementById('num-tickets').value);
-    const timer = parseInt(document.getElementById('timer').value) * 1000; // Convert to milliseconds
+    const timer = parseInt(document.getElementById('timer').value) * 1000; // Mengonversi ke milidetik
 
     if (numTickets > 0 && timer > 0) {
         let ticketCount = 0;
@@ -18,11 +19,11 @@ document.getElementById('auto-generate-btn').addEventListener('click', function(
         // Fungsi untuk generate tiket secara otomatis
         const interval = setInterval(function() {
             if (ticketCount < numTickets) {
-                const randomName = getRandomName(); // Ambil nama acak
-                generateTicket(randomName);
+                const randomName = getRandomName(); // Mengambil nama acak
+                generateTicket(randomName); // Menghasilkan tiket dengan nama acak
                 ticketCount++;
             } else {
-                clearInterval(interval); // Stop setelah jumlah tiket tercapai
+                clearInterval(interval); // Menghentikan interval setelah jumlah tiket tercapai
             }
         }, timer);
     } else {
