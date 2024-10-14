@@ -20,8 +20,10 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    width: 300px; /* Ukuran tiket diperkecil */
+    width: 250px; /* Ukuran tiket diperkecil */
     height: auto; /* Mengatur tinggi otomatis */
+    position: relative; /* Agar tidak saling bertumpuk */
+    display: none; /* Menyembunyikan tiket sampai akan ditampilkan */
 }
 
 .ticket h2 {
@@ -36,4 +38,8 @@ body {
 svg {
     display: block;
     margin: 10px auto;
+}
+
+.ticket-display {
+    margin-top: 20px; /* Jarak antara tombol dan tiket */
 }
