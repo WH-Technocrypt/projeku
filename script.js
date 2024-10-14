@@ -10,9 +10,14 @@ document.getElementById('generate-btn').addEventListener('click', function() {
         document.getElementById('jenis').innerText = transactionType;
         document.getElementById('tanggal').innerText = transactionDate;
 
-        // Membuat barcode (sederhana) dari nomor transaksi
-        var barcode = "TRX-" + transactionNumber.slice(-4) + Math.floor(Math.random() * 1000);
-        document.getElementById('barcode').innerText = barcode;
+        // Membuat barcode menggunakan JsBarcode
+        JsBarcode("#barcode", transactionNumber, {
+            format: "CODE128", // format barcode yang digunakan
+            lineColor: "#000",
+            width: 2,
+            height: 40,
+            displayValue: true
+        });
 
         // Tampilkan tiket
         document.getElementById('ticket').style.display = "block";
