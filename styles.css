@@ -36,7 +36,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px; /* Menambahkan jarak bawah pada tombol */
+    margin-bottom: 400px; /* Menambahkan jarak bawah pada tombol */
 }
 
 button:hover {
@@ -44,7 +44,7 @@ button:hover {
 }
 
 .ticket {
-    margin-top: 40px; /* Menambahkan jarak antara tombol dan tiket */
+    margin-top: 60px; /* Menambahkan jarak antara tombol dan tiket */
     text-align: left;
 }
 
