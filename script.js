@@ -1,25 +1,29 @@
 document.getElementById('generate-btn').addEventListener('click', function() {
-    var transactionNumber = document.getElementById('transaction-number').value;
+    var userName = document.getElementById('name-input').value;
 
-    // Dapatkan tanggal hari ini
-    var today = new Date();
-    var day = String(today.getDate()).padStart(2, '0');
-    var month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
-    var year = today.getFullYear();
-    var currentDate = `${day}-${month}-${year}`;
+    // Cek apakah field nama diisi
+    if (userName) {
+        // Generate nomor transaksi acak
+        var transactionNumber = 'TRX' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
 
-    // Generate biaya secara otomatis, minimal Rp 1.000
-    var minCost = 1000;
-    var randomCost = Math.floor(Math.random() * 10000) + minCost; // Biaya antara 1.000 hingga 10.000
+        // Generate tanggal otomatis (hari ini)
+        var today = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+        var year = today.getFullYear();
+        var currentDate = `${day}-${month}-${year}`;
 
-    // Jika nomor transaksi diisi
-    if (transactionNumber) {
-        // Menampilkan informasi tiket
+        // Generate biaya acak minimal Rp 1.000,-
+        var minCost = 1000;
+        var randomCost = Math.floor(Math.random() * 10000) + minCost;
+
+        // Tampilkan informasi tiket
+        document.getElementById('name').innerText = userName; // Nama diambil dari input pengguna
         document.getElementById('transaksi').innerText = transactionNumber;
         document.getElementById('tanggal').innerText = currentDate;
-        document.getElementById('biaya').innerText = randomCost.toLocaleString(); // Memformat biaya dengan titik
+        document.getElementById('biaya').innerText = randomCost.toLocaleString('id-ID');
 
-        // Membuat barcode menggunakan JsBarcode
+        // Buat barcode menggunakan JsBarcode
         JsBarcode("#barcode", transactionNumber, {
             format: "CODE128", // format barcode yang digunakan
             lineColor: "#000",
@@ -28,9 +32,9 @@ document.getElementById('generate-btn').addEventListener('click', function() {
             displayValue: true
         });
 
-        // Tampilkan tiket
+        // Tampilkan tiket yang dihasilkan
         document.getElementById('ticket').style.display = "block";
     } else {
-        alert('Masukkan nomor transaksi!');
+        alert('Masukkan nama Anda!');
     }
 });
