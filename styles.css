@@ -32,14 +32,14 @@ input {
 }
 
 button {
-    padding: 10px 20px;
+    padding: 8px 15px; /* Ukuran tombol diperbesar */
     background-color: #4caf50;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    width: 100%; /* Lebar tombol diatur agar tetap di tengah */
+    width: 80%; /* Lebar tombol dikurangi */
+    margin-top: 30px; /* Naikkan posisi tombol lebih dekat ke atas */
 }
 
 button:hover {
