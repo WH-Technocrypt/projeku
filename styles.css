@@ -39,43 +39,66 @@ button:hover {
 }
 
 .receipt {
+  font-family: 'Courier New', Courier, monospace;
   max-width: 400px;
   margin: 0 auto;
   background: white;
   padding: 20px;
-  border: 2px dashed #333;
-  border-radius: 8px;
+  border: 1px dashed #000;
   text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .logo img {
-  width: 100px;
-  margin-bottom: 10px;
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 
 .store-info {
   text-align: center;
+  font-size: 14px;
   margin-bottom: 10px;
 }
 
 hr {
+  border: none;
+  border-top: 1px dashed #000;
   margin: 15px 0;
 }
 
 .item-line {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
 .total-line {
+  display: flex;
+  justify-content: space-between;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 15px;
+  border-top: 1px dashed #000;
+  padding-top: 10px;
 }
 
 .thank-you {
   text-align: center;
   font-style: italic;
+  font-size: 14px;
   margin-top: 20px;
+}
+
+.barcode {
+  margin-top: 15px;
+  height: 40px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000,
+    #000 2px,
+    #fff 2px,
+    #fff 4px
+  );
 }
