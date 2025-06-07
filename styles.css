@@ -1,89 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 20px;
 }
 
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px; /* Batas lebar container */
+h2 {
+  margin-bottom: 20px;
 }
 
-h1 {
-    margin-bottom: 20px;
+.form-section {
+  margin-bottom: 30px;
 }
 
-input {
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input[type="number"] {
+  padding: 5px;
+  margin-left: 10px;
+  width: 60px;
 }
 
 button {
-    padding: 8px 15px; /* Ukuran tombol diperbesar */
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 80%; /* Lebar tombol dikurangi */
-    margin-top: 30px; /* Naikkan posisi tombol lebih dekat ke atas */
+  padding: 10px 20px;
+  background-color: #d62d2d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #a91c1c;
 }
 
-.ticket-container {
-    position: relative;
-    display: flex;
-    justify-content: center; /* Menjaga tiket tetap di tengah */
-    align-items: center;
-    margin-top: 20px; /* Menambahkan jarak antara tombol dan tiket */
+.receipt {
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border: 2px dashed #333;
+  border-radius: 8px;
+  text-align: left;
 }
 
-.ticket {
-    text-align: left;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 300px;
-    position: relative;
+.logo img {
+  width: 100px;
+  margin-bottom: 10px;
 }
 
-.ticket h2 {
-    text-align: center;
-    margin-bottom: 5px;
+.store-info {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-svg {
-    display: block;
-    margin: 0 auto;
-    margin-top: 10px;
+hr {
+  margin: 15px 0;
 }
 
-#hamsters-text {
-    font-weight: bold;
-    color: red;
-    position: absolute;
-    top: 0; /* Disesuaikan untuk berada di awal tiket */
-    left: 100%; /* Mengatur teks di luar sebelah kanan tiket */
-    margin-left: 10px; /* Jarak dari tiket */
-    writing-mode: vertical-rl; /* Teks vertikal dari kanan ke kiri */
-    transform: rotate(180deg); /* Membalik teks agar menghadap ke atas */
-    font-size: 20px;
-    font-style: italic;
+.item-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.total-line {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.thank-you {
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
 }
