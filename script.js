@@ -32,6 +32,34 @@ function getRandomItems(menu, count) {
   return selected;
 }
 
+function generateRandomCode(length = 10) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+function generateBarcodeSVG(code) {
+  let x = 0;
+  const svgParts = [];
+  svgParts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40">`);
+
+  for (let i = 0; i < code.length; i++) {
+    const val = code.charCodeAt(i);
+    const bars = val % 7 + 1; // number of bars per char
+    for (let j = 0; j < bars; j++) {
+      svgParts.push(`<rect x="${x}" y="0" width="2" height="40" fill="#000" />`);
+      x += 4;
+    }
+    x += 2; // gap between characters
+  }
+
+  svgParts.push(`</svg>`);
+  return svgParts.join("");
+}
+
 function generateReceipt() {
   const foodCount = parseInt(document.getElementById("foodCount").value);
   const drinkCount = parseInt(document.getElementById("drinkCount").value);
@@ -56,6 +84,16 @@ function generateReceipt() {
 
   receiptHTML += `<div class="total-line"><span>Total</span><span>$${total.toFixed(2)}</span></div>`;
 
+  const barcodeCode = generateRandomCode();
+  const barcodeSVG = generateBarcodeSVG(barcodeCode);
+  const barcodeContainer = `
+    <div style="text-align:center; margin-top:10px;">
+      <div><strong>${barcodeCode}</strong></div>
+      ${barcodeSVG}
+    </div>
+  `;
+
   document.getElementById("receiptBody").innerHTML = receiptHTML;
+  document.getElementById("barcodeContainer").innerHTML = barcodeContainer;
   document.getElementById("receipt").style.display = "block";
 }
