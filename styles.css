@@ -93,12 +93,10 @@ hr {
 
 .barcode {
   margin-top: 15px;
-  height: 40px;
-  background-image: repeating-linear-gradient(
-    to right,
-    #000,
-    #000 2px,
-    #fff 2px,
-    #fff 4px
-  );
+  padding: 5px;
+  height: auto;
+  min-height: 40px;
+  background: #fff;
+  border: 1px dashed #000;
+  word-break: break-word;
 }
