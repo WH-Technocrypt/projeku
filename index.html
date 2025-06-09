@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pizza Hut Receipt</title>
+  <title>Receipt Generator</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h2>Pizza Order Form</h2>
+  <h2>Receipt Generator</h2>
   <div class="form-section">
+    <label for="storeSelect">Select Store:
+      <select id="storeSelect">
+        <option value="pizza">Pizza Hut</option>
+        <option value="wholefoods">Whole Foods Market</option>
+      </select>
+    </label>
     <label for="foodCount">Number of food items:
       <input type="number" id="foodCount" value="3" min="1" />
     </label>
@@ -20,9 +26,9 @@
 
   <div class="receipt" id="receipt" style="display: none;">
     <div class="logo">
-      <img src="assets/pizzahut-logo.png" alt="Pizza Hut Logo" />
+      <img src="assets/pizzahut-logo.png" alt="Store Logo" id="storeLogo"/>
     </div>
-    <div class="store-info">
+    <div class="store-info" id="storeInfo">
       <p><strong>Pizza Hut</strong></p>
       <p>123 Pizza Street</p>
       <p>Flavor Town, USA</p>
@@ -31,7 +37,7 @@
     <hr />
     <div id="receiptBody"></div>
     <hr />
-    <p class="thank-you">*** THANK YOU FOR VISITING ***</p>
+    <p class="thank-you">*** THANK YOU FOR SHOPPING WITH US ***</p>
     <div class="barcode" id="barcodeContainer"></div>
   </div>
 
