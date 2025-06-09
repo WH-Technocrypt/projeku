@@ -52,21 +52,18 @@ function generateRandomCode(length = 10) {
 
 function generateBarcodeSVG(code) {
   let x = 0;
-  const svgParts = [];
-  svgParts.push(<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40">);
-
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40">`;
   for (let i = 0; i < code.length; i++) {
     const val = code.charCodeAt(i);
-    const bars = val % 7 + 1; // number of bars per char
+    const bars = val % 7 + 1;
     for (let j = 0; j < bars; j++) {
-      svgParts.push(<rect x="${x}" y="0" width="2" height="40" fill="#000" />);
+      svg += `<rect x="${x}" y="0" width="2" height="40" fill="#000" />`;
       x += 4;
     }
-    x += 2; // gap between characters
+    x += 2; // space between characters
   }
-
-  svgParts.push(</svg>);
-  return svgParts.join("");
+  svg += `</svg>`;
+  return svg;
 }
 
 function generateReceipt() {
@@ -82,25 +79,25 @@ function generateReceipt() {
   selectedFoods.forEach(item => {
     const price = foodMenu[item];
     total += price;
-    receiptHTML += <div class="item-line"><span>${item}</span><span>$${price.toFixed(2)}</span></div>;
+    receiptHTML += `<div class="item-line"><span>${item}</span><span>$${price.toFixed(2)}</span></div>`;
   });
 
   selectedDrinks.forEach(item => {
     const price = drinkMenu[item];
     total += price;
-    receiptHTML += <div class="item-line"><span>${item}</span><span>$${price.toFixed(2)}</span></div>;
+    receiptHTML += `<div class="item-line"><span>${item}</span><span>$${price.toFixed(2)}</span></div>`;
   });
 
-  receiptHTML += <div class="total-line"><span>Total</span><span>$${total.toFixed(2)}</span></div>;
+  receiptHTML += `<div class="total-line"><span>Total</span><span>$${total.toFixed(2)}</span></div>`;
 
   const barcodeCode = generateRandomCode();
   const barcodeSVG = generateBarcodeSVG(barcodeCode);
-  const barcodeContainer = 
+  const barcodeContainer = `
     <div style="text-align:center; margin-top:10px;">
       <div><strong>${barcodeCode}</strong></div>
       ${barcodeSVG}
     </div>
-  ;
+  `;
 
   document.getElementById("receiptBody").innerHTML = receiptHTML;
   document.getElementById("barcodeContainer").innerHTML = barcodeContainer;
