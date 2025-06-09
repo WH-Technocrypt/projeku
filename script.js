@@ -105,3 +105,8 @@ function generateReceipt() {
   document.getElementById("barcodeContainer").innerHTML = barcodeContainer;
   document.getElementById("receipt").style.display = "block";
 }
+
+// Pastikan tombol dikenali setelah halaman selesai dimuat
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("generateBtn").addEventListener("click", generateReceipt);
+});
