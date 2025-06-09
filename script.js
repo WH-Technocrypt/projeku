@@ -1,7 +1,14 @@
 const foodMenu = {
+  "Splitza Signature": 9,
   "Veggie Garden": 7,
+  "Meat Lovers": 8.5,
+  "Super Supreme": 8.5,
+  "Tuna Melt": 7,
   "My Box": 4.6,
   "My Box Plus": 6,
+  "Duo Pizza": 15,
+  "Beef Lasagna": 6.5,
+  "Chicken Sticks": 3.5,
   "Mac ‘n Cheese": 3.5,
   "Grilled Veggie Wrap": 5.5,
   "Tofu Teriyaki Bowl": 6.2,
@@ -17,7 +24,11 @@ const foodMenu = {
 };
 
 const drinkMenu = {
+  "Melon Lemonade": 1.9,
+  "Orange Delight": 1.9,
   "Lemon Tea": 1.9,
+  "Cappuccino Jelly": 2.5,
+  "Coca Cola 1 Liter": 2.8,
   "Aqua": 1.2,
   "Herbal Infused Water": 2.0,
   "Cucumber Mint Cooler": 2.5,
@@ -106,7 +117,6 @@ function generateReceipt() {
   document.getElementById("receipt").style.display = "block";
 }
 
-// Pastikan tombol dikenali setelah halaman selesai dimuat
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("generateBtn").addEventListener("click", generateReceipt);
 });
