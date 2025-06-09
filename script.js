@@ -53,6 +53,7 @@ function generateRandomCode(length = 10) {
 function generateBarcodeSVG(code) {
   let x = 0;
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40">`;
+
   for (let i = 0; i < code.length; i++) {
     const val = code.charCodeAt(i);
     const bars = val % 7 + 1;
@@ -60,8 +61,9 @@ function generateBarcodeSVG(code) {
       svg += `<rect x="${x}" y="0" width="2" height="40" fill="#000" />`;
       x += 4;
     }
-    x += 2; // space between characters
+    x += 2;
   }
+
   svg += `</svg>`;
   return svg;
 }
@@ -92,12 +94,12 @@ function generateReceipt() {
 
   const barcodeCode = generateRandomCode();
   const barcodeSVG = generateBarcodeSVG(barcodeCode);
-  const barcodeContainer = `
-    <div style="text-align:center; margin-top:10px;">
+
+  const barcodeContainer =
+    `<div style="text-align:center; margin-top:10px;">
       <div><strong>${barcodeCode}</strong></div>
       ${barcodeSVG}
-    </div>
-  `;
+    </div>`;
 
   document.getElementById("receiptBody").innerHTML = receiptHTML;
   document.getElementById("barcodeContainer").innerHTML = barcodeContainer;
